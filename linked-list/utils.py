@@ -18,5 +18,16 @@ def print_linked_list(head: Node) -> None:
     print(f"{curr.val} -> ", end="")
     curr = curr.next
 
-  print(f"{curr.val}")
-  
+  if curr:
+    print(f"{curr.val}")
+
+def run_test(array: list, test: callable, should_return = True):
+  print()
+  head = array_to_linked_list(array)
+  print_linked_list(head)
+  if should_return:
+    head = test(head)
+  else:
+    test(head)
+  print_linked_list(head)
+  print()

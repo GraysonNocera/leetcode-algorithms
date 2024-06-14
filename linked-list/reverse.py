@@ -1,7 +1,7 @@
 from list import Node
-from utils import array_to_linked_list, print_linked_list
+from utils import run_test
 
-def reverse1(head):
+def reverse1(head: Node):
   curr = head
   prev = None
 
@@ -15,8 +15,12 @@ def reverse1(head):
 
 
 if __name__ == "__main__":
-  arr = [1, 2, 3, 4]
-  head = array_to_linked_list(arr)
-  print_linked_list(head)
-  reversed_head = reverse1(head)
-  print_linked_list(reversed_head)
+  tests = [
+    [1, 2, 3, 4],
+    [1, 2, 3, 4, 5, 6, 7],
+    [],
+    [1],
+    [1, 2]
+  ]
+  for arr in tests:
+    run_test(arr, reverse1, should_return=True)
