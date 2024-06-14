@@ -13,20 +13,23 @@ def array_to_linked_list(array: list) -> Node:
   return head
 
 def print_linked_list(head: Node) -> None:
+  if not head:
+    print("Empty list")
+    return
+
   curr = head
   while curr and curr.next:
     print(f"{curr.val} -> ", end="")
     curr = curr.next
 
-  if curr:
-    print(f"{curr.val}")
+  print(f"{curr.val}")
 
-def run_test(array: list, test: callable, should_return = True):
+def run_test(array: list, test: callable, args: tuple = (), should_return = True):
   print()
   head = array_to_linked_list(array)
   print_linked_list(head)
   if should_return:
-    head = test(head)
+    head = test(head, *args)
   else:
     test(head)
   print_linked_list(head)
