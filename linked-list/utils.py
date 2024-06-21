@@ -12,6 +12,14 @@ def array_to_linked_list(array: list) -> Node:
 
   return head
 
+def linked_list_to_array(head: Node) -> list:
+  array = []
+  curr = head
+  while curr:
+    array.append(curr.val)
+    curr = curr.next
+  return array
+
 def print_linked_list(head: Node) -> None:
   if not head:
     print("Empty list")
@@ -33,4 +41,5 @@ def run_test(array: list, test: callable, args: tuple = (), should_return = True
   else:
     test(head)
   print_linked_list(head)
+  # assert linked_list_to_array(head) == list(reversed(array))
   print()

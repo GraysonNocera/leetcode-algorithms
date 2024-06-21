@@ -1,7 +1,7 @@
 from list import Node
 from utils import run_test
 
-def reverse1(head: Node):
+def reverse1(head: Node, prev: Node = None):
   curr = head
   prev = None
 
